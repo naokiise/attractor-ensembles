@@ -1,0 +1,5 @@
+{
+  "name": "attractor ensembles",
+  "description": "A generative audio-visual experience based on the Lorenz Attractor. The chaotic mathematical system drives a rhythmic sine wave synthesizer, where simulation acceleration alters the soundscape. Powered by Gemini for natural language parameter control.",
+  "requestFramePermissions": []
+}
