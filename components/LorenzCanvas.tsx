@@ -44,7 +44,7 @@ export const LorenzCanvas: React.FC<LorenzCanvasProps> = ({ params, theme, isPla
   // Rotation State
   const isDragging = useRef(false);
   const lastMouse = useRef({ x: 0, y: 0 });
-  const rotation = useRef({ x: 0, y: 0 }); 
+  const rotation = useRef({ x: Math.PI / 4, y: Math.PI / 4 });
   
   // Zoom State
   const scale = useRef(12);
@@ -321,8 +321,8 @@ export const LorenzCanvas: React.FC<LorenzCanvasProps> = ({ params, theme, isPla
       const mercatorZoom = scale.current * 20;
       const mercatorWrapThreshold = (2 * Math.PI * mercatorZoom) * 0.5;
       
-      ctx.lineWidth = 1;
-      
+      ctx.lineWidth = 3;
+
       const minX = -100, maxX = w + 100;
       const minY = -100, maxY = h + 100;
 
@@ -556,7 +556,7 @@ export const LorenzCanvas: React.FC<LorenzCanvasProps> = ({ params, theme, isPla
       const dt = Math.min((now - lastTime.current) / 1000, 0.1); // Cap at 100ms
       lastTime.current = now;
 
-      if (isPlaying) simulate();
+      simulate();
       
       // Auto-rotation (horizontal/Y-axis)
       if (!isDragging.current) {
